@@ -20,7 +20,7 @@ namespace RevitTranslator
         public static async Task<string> GetViewerUrl(int port, string urn)
         {
             dynamic oauth = await Get2LeggedTokenAsync(new Scope[] { Scope.DataRead, Scope.ViewablesRead });
-            return $"http://localhost:3000?urn={urn}&token={oauth.access_token}&expiresin={oauth.expires_in}";
+            return $"http://localhost:{port}?urn={urn}&token={oauth.access_token}&expiresin={oauth.expires_in}";
         }
 
         public static async Task<string> UploadRevitFile(string filepath)
